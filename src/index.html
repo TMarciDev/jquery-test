@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>My Website</title>
+		<link rel="stylesheet" href="./style.css" />
+		<link rel="icon" href="./favicon.ico" type="image/x-icon" />
+
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<div id="AppContainer"></div>
+		<script type="text/javascript" charset="utf-8">
+			var HashChange = () => {
+				var hash = window.location.hash;
+				if (hash.startsWith('#/') && hash.length > 2) {
+					hash = hash.replace('#/', '');
+					var file = 'pages/' + hash + '.html';
+					$('#AppContainer').load(file);
+				} else {
+					window.location = '#/home';
+				}
+			};
+			window.onhashchange = HashChange;
+			HashChange();
+		</script>
+	</body>
+</html>
