@@ -16,11 +16,7 @@
 		<script type="text/javascript" charset="utf-8">
 			var HashChange = () => {
 				var hash = window.location.hash;
-				if (hash.startsWith('#!') && hash.length > 2) {
-					hash = hash.replace('#!', '');
-					window.open(hash, '_blank');
-					window.location.href = hash;
-				} else if (hash.startsWith('#/') && hash.length > 2) {
+				if (hash.startsWith('#/') && hash.length > 2) {
 					hash = hash.replace('#/', '');
 					var file = 'pages/' + hash + '.html';
 					$('#AppContainer').load(file);
